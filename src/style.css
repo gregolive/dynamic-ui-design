@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
+/* DEMO SITE ELEMENTS */
+
+:root {
+  --primary-color: #171738;
+  --secondary-color: #3423A6;
+  --hover-color: #7768DF;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body > * {
+  box-sizing: border-box;
+  color: var(--primary-color);
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+header {
+  color: var(--primary-color);
+  border-bottom: 1px solid black;
+  width: 100vw;
+  height: 60px;
+  padding: 1rem 2rem;
+}
+
+.header-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.header-links {
+  font-size: 1.125rem;
+  font-weight: 500;
+  gap: 1.5rem;
+}
+
+main {
+  min-height: calc(100vh - 115px);
+}
+
+main > section {
+  width: 100%;
+}
+
+footer {
+  color: var(--primary-color);
+  background-color: rgba(0,0,0,0.03);
+  height: 55px;
+}
+
+footer a {
+  color: var(--primary-color);
+}
+
+/* MAIN - OVERVIEW */
+
+.overview {
+  width: clamp(10rem, 85vw, 60rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: min(2.5rem, 9vw);
+}
+
+.overview p {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+/* MAIN - 1) DROP-DOWN MENU */
+
+
+
+/* MAIN - 2) MOBILE MENU */
+
+
+
+/* MAIN - 3) IMAGE SLIDER */
+
+
+
+
+/* UNIVERSAL CLASSES */
+
+.d-flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-bet {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
