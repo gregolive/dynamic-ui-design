@@ -98,7 +98,7 @@ h2 {
   font-size: 1.75rem;
 }
 
-/* MAIN - 1) DROP-DOWN MENU */
+/* 1) DROP-DOWN MENU */
 
 :root {
   --dropdown-font-size: 1.1rem;
@@ -123,18 +123,22 @@ h2 {
 
 .dropdown-menu {
   list-style: none;
+  opacity: 0;
   background-color: white;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   min-width: 10rem;
-  padding: var(--dropdown-menu-padding);
-  display: none;
+  height: 0;
   position: absolute;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .dropdown-menu.show {
-  display: block;
+  transition: opacity 0.5s ease-out;
+  opacity: 1;
+  height: auto;
+  padding: var(--dropdown-menu-padding);
 }
 
 ul {
@@ -151,9 +155,9 @@ ul {
   background-color: var(--bg-color);
 }
 
-/* MAIN - 2) MOBILE MENU */
+/* 2) MOBILE MENU */
 
 
 
-/* MAIN - 3) IMAGE SLIDER */
+/* 3) IMAGE SLIDER */
 
