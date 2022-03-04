@@ -1,3 +1,12 @@
+const toggleMenu = () => {
+  const menuClass = document.querySelector('.dropdown-menu').classList;
+  if (menuClass.contains('show')) {
+    menuClass.remove('show');
+  } else {
+    menuClass.add('show');
+  }
+};
+
 const dropdownBtn = (title) => {
   const btn = document.createElement('button');
   const icon = document.createElement('i');
@@ -8,6 +17,7 @@ const dropdownBtn = (title) => {
   btn.setAttribute('type', 'button');
   btn.textContent = ` ${title} `;
   btn.appendChild(icon);
+  btn.addEventListener('click', toggleMenu);
 
   return btn;
 };
@@ -26,7 +36,7 @@ const dropdownLink = (link) => {
 
 const dropdownMenu = (links) => {
   const list = document.createElement('ul');
-  list.className = 'dropdown-menu show';
+  list.className = 'dropdown-menu';
 
   links.forEach((link) => {
     list.appendChild(dropdownLink(link));
@@ -35,24 +45,13 @@ const dropdownMenu = (links) => {
   return list;
 };
 
-const buildDropdown = (title, links) => {
+const dropdown = (drop) => {
   const container = document.createElement('div');
   container.className = 'dropdown';
-  container.appendChild(dropdownBtn(title));
-  container.appendChild(dropdownMenu(links));
+  container.appendChild(dropdownBtn(drop.title));
+  container.appendChild(dropdownMenu(drop.links));
 
   return container;
-};
-
-const addEventListener = () => {
-
-};
-
-const dropdown = (drop) => {
-  const dd = buildDropdown(drop.title, drop.links);
-  addEventListener();
-
-  return dd;
 };
 
 export default dropdown;
