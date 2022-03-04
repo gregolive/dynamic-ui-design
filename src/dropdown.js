@@ -1,5 +1,5 @@
-const toggleMenu = () => {
-  const menuClass = document.querySelector('.dropdown-menu').classList;
+const toggleMenu = (e) => {
+  const menuClass = e.currentTarget.nextSibling.classList;
   if (menuClass.contains('show')) {
     menuClass.remove('show');
   } else {
@@ -7,7 +7,7 @@ const toggleMenu = () => {
   }
 };
 
-const dropdownBtn = (title) => {
+const dropdownBtn = (drop) => {
   const btn = document.createElement('button');
   const icon = document.createElement('i');
 
@@ -15,9 +15,14 @@ const dropdownBtn = (title) => {
 
   btn.className = 'btn btn-primary';
   btn.setAttribute('type', 'button');
-  btn.textContent = ` ${title} `;
+  btn.textContent = ` ${drop.title} `;
   btn.appendChild(icon);
-  btn.addEventListener('click', toggleMenu);
+  if (drop.hover === true) {
+    btn.addEventListener('mouseover', toggleMenu);
+    btn.addEventListener('mouseout', toggleMenu);
+  } else {
+    btn.addEventListener('click', toggleMenu);
+  }
 
   return btn;
 };
@@ -34,11 +39,11 @@ const dropdownLink = (link) => {
   return listItem;
 };
 
-const dropdownMenu = (links) => {
+const dropdownMenu = (drop) => {
   const list = document.createElement('ul');
   list.className = 'dropdown-menu';
 
-  links.forEach((link) => {
+  drop.links.forEach((link) => {
     list.appendChild(dropdownLink(link));
   });
 
@@ -48,8 +53,8 @@ const dropdownMenu = (links) => {
 const dropdown = (drop) => {
   const container = document.createElement('div');
   container.className = 'dropdown';
-  container.appendChild(dropdownBtn(drop.title));
-  container.appendChild(dropdownMenu(drop.links));
+  container.appendChild(dropdownBtn(drop));
+  container.appendChild(dropdownMenu(drop));
 
   return container;
 };
