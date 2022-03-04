@@ -37,10 +37,7 @@ const dropdownLink = (link) => {
 const dropdownMenu = (links) => {
   const list = document.createElement('ul');
   list.className = 'dropdown-menu';
-
-  links.forEach((link) => {
-    list.appendChild(dropdownLink(link));
-  });
+  links.forEach((link) => list.appendChild(dropdownLink(link)));
 
   return list;
 };

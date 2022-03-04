@@ -2,8 +2,9 @@ import './style.css';
 import '@fortawesome/fontawesome-free/js/all';
 import dropdown from './dropdown';
 import dropdownHover from './dropdown-hover';
+import navbarExpand from './navbar-expand';
 
-const demoDropdown = (() => {
+const demoDropdowns = (() => {
   const links1 = [
     { text: 'Hello there 👋', href: '#' },
     { text: "I'm a dropdown link 🔗", href: '#' },
@@ -24,4 +25,21 @@ const demoDropdown = (() => {
   return { init };
 })();
 
-demoDropdown.init();
+const demoMobileNavs = (() => {
+  const menuLinks = [
+    { text: 'News', href: '', icon: 'fa-solid fa-newspaper' },
+    { text: 'Contact', href: '', icon: 'fa-solid fa-address-card' },
+    { text: 'About', href: '', icon: 'fa-solid fa-circle-info' },
+  ];
+  const expandTitle = { text: 'Navbar Expand', href: '#' };
+
+  const init = () => {
+    const phones = document.querySelectorAll('.mobile-main');
+    phones[0].parentNode.insertBefore(navbarExpand(expandTitle, menuLinks), phones[0]);
+  };
+
+  return { init };
+})();
+
+demoDropdowns.init();
+demoMobileNavs.init();
