@@ -7,6 +7,13 @@ const clickMenu = (e) => {
   }
 };
 
+const hoverMenu = (e) => {
+  const menuClass = e.currentTarget.nextSibling.classList;
+  if (!menuClass.contains('show')) {
+    menuClass.add('show');
+  }
+};
+
 const dropdownBtn = (title) => {
   const btn = document.createElement('button');
   const icon = document.createElement('i');
@@ -17,6 +24,7 @@ const dropdownBtn = (title) => {
   btn.setAttribute('type', 'button');
   btn.textContent = ` ${title} `;
   btn.appendChild(icon);
+  btn.addEventListener('mouseenter', hoverMenu);
   btn.addEventListener('click', clickMenu);
 
   return btn;
@@ -45,7 +53,7 @@ const dropdownMenu = (links) => {
   return list;
 };
 
-const dropdown = (title, links) => {
+const dropdownHover = (title, links) => {
   const container = document.createElement('div');
   container.className = 'dropdown';
   container.appendChild(dropdownBtn(title));
@@ -54,4 +62,4 @@ const dropdown = (title, links) => {
   return container;
 };
 
-export default dropdown;
+export default dropdownHover;
