@@ -1,4 +1,4 @@
-const toggleMenu = (e) => {
+const clickMenu = (e) => {
   const menuClass = e.currentTarget.nextSibling.classList;
   if (menuClass.contains('show')) {
     menuClass.remove('show');
@@ -7,7 +7,14 @@ const toggleMenu = (e) => {
   }
 };
 
-const dropdownBtn = (drop) => {
+const hoverMenu = (e) => {
+  const menuClass = e.currentTarget.nextSibling.classList;
+  if (!menuClass.contains('show')) {
+    menuClass.add('show');
+  }
+};
+
+const dropdownBtn = (title, hover) => {
   const btn = document.createElement('button');
   const icon = document.createElement('i');
 
@@ -15,13 +22,13 @@ const dropdownBtn = (drop) => {
 
   btn.className = 'btn btn-primary';
   btn.setAttribute('type', 'button');
-  btn.textContent = ` ${drop.title} `;
+  btn.textContent = ` ${title} `;
   btn.appendChild(icon);
-  if (drop.hover === true) {
-    btn.addEventListener('mouseover', toggleMenu);
-    btn.addEventListener('mouseout', toggleMenu);
+  if (hover === true) {
+    btn.addEventListener('mouseenter', hoverMenu);
+    btn.addEventListener('click', clickMenu);
   } else {
-    btn.addEventListener('click', toggleMenu);
+    btn.addEventListener('click', clickMenu);
   }
 
   return btn;
@@ -39,22 +46,22 @@ const dropdownLink = (link) => {
   return listItem;
 };
 
-const dropdownMenu = (drop) => {
+const dropdownMenu = (links) => {
   const list = document.createElement('ul');
   list.className = 'dropdown-menu';
 
-  drop.links.forEach((link) => {
+  links.forEach((link) => {
     list.appendChild(dropdownLink(link));
   });
 
   return list;
 };
 
-const dropdown = (drop) => {
+const dropdown = (title, links, hover = false) => {
   const container = document.createElement('div');
   container.className = 'dropdown';
-  container.appendChild(dropdownBtn(drop));
-  container.appendChild(dropdownMenu(drop));
+  container.appendChild(dropdownBtn(title, hover));
+  container.appendChild(dropdownMenu(links));
 
   return container;
 };

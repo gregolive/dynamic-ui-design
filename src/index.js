@@ -10,7 +10,6 @@ const demoDropdown = (() => {
       { text: "I'm a dropdown link 🔗", href: '#' },
       { text: 'Me too 🤙', href: '#' },
     ],
-    hover: false,
   };
 
   const dropdownHover = {
@@ -20,13 +19,12 @@ const demoDropdown = (() => {
       { text: "I'm a dropdown link 🔗", href: '#' },
       { text: 'Me too 🤙', href: '#' },
     ],
-    hover: true,
   };
 
   const init = () => {
     const container = document.querySelector('.dropdown-container');
-    container.appendChild(dropdown(dropdownClick));
-    container.appendChild(dropdown(dropdownHover));
+    container.appendChild(dropdown(dropdownClick.title, dropdownClick.links));
+    container.appendChild(dropdown(dropdownHover.title, dropdownHover.links, true));
   };
 
   return { init };
