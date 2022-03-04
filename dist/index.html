@@ -8,18 +8,18 @@
   <script src="main.js" defer></script>
 </head>
 <body>
-  <header class="d-flex justify-space-bet align-center">
+  <header>
     <a href="#" class="header-title">Javascript UI Demos</a>
-    <div class="header-links d-flex justify-space-bet">
-      <a href="">Drop-down</a>
-      <a href="">Mobile Menu</a>
-      <a href="">Image Slider</a>
+    <div class="header-links">
+      <a href="#dropdown-demo">Drop-down</a>
+      <a href="#mobile-menu-demo">Mobile Menu</a>
+      <a href="#img-slider-demo">Image Slider</a>
     </div>
   </header>
 
-  <main class="d-flex">
+  <main>
     <!-- OVERVIEW -->
-    <section class="overview d-flex flex-col ">
+    <section class="overview">
       <h1>Dynamic UI Design</h1>
       <p>
         Javascript is an integral part of modern web design and is used to create complex web applications that work across all devices and browsers.
@@ -34,14 +34,34 @@
     </section>
 
     <!-- 1) DROP-DOWN MENU -->
+    <section id="dropdown-demo" class="dropdown-demo">
+      <h2>1) Drop-down Menu</h2>
+
+      <div class="dropdown">
+        <button class="btn btn-primary" type="button">
+          Dropdown
+          <i class="fa-solid fa-caret-down"></i>
+        </button>
+        <ul class="dropdown-menu show">
+          <li><a href="#" class="dropdown-item">Hello there 👋</a></li>
+          <li><a href="#" class="dropdown-item">I'm a dropdown link 🔗</a></li>
+          <li><a href="#" class="dropdown-item">Me too 🤙</a></li>
+        </ul>
+      </div>
+    </section>
 
     <!-- 2) MOBILE MENU -->
+    <section id="mobile-menu-demo" class="mobile-menu-demo">
+      <h2>2) Mobile Menu</h2>
+    </section>
 
     <!-- 3) IMAGE SLIDER -->
-
+    <section id="img-slider-demo" class="img-slider-demo">
+      <h2>3) Image Slider</h2>
+    </section>
   </main>
 
-  <footer class="d-flex justify-center">
+  <footer>
     <p>
       &copy; <a href="https://github.com/gregolive">gregolive</a>
     </p>
