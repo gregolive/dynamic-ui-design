@@ -120,7 +120,6 @@ h2 {
   aspect-ratio: 9 / 15;
   overflow: hidden;
   display: grid;
-  grid-template-rows: auto 1fr;
 }
 
 .mobile-main {
@@ -191,6 +190,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .navbar-top {
@@ -225,18 +225,8 @@ ul {
 .navbar-menu {
   background-color: var(--secondary-color);
   font-size: 1.35rem;
-  width: 100%;
-  height: 0;
-  opacity: 0;
   display: flex;
   flex-direction: column;
-}
-
-.navbar-menu.show {
-  transition: opacity .5s ease-out;
-  opacity: 1;
-  height: auto;
-  padding: 0.5rem 0;
 }
 
 .navbar-link {
@@ -252,6 +242,67 @@ ul {
   background-color: white;
 }
 
+/* Expand Menu */
+
+.menu-expand {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+}
+
+.menu-expand.show {
+  transition: opacity .5s ease-out;
+  opacity: 1;
+  height: auto;
+  padding: 0.5rem 0;
+}
+
+/* Side Menu */
+
+.menu-side {
+  display: block;
+}
+
+.menu-side.close {
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -75%;
+  width: 90%;
+  height: 100%;
+  opacity: 0;
+}
+
+.menu-side.show {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  flex-direction: column;
+  height: auto;
+  width: 75%;
+  transition: left 0.35s ease;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  opacity: 1;
+  height: auto;
+  padding: 1rem;
+}
+
+.menu-close-wrapper {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-close {
+  color: white;
+  background: none;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
 
 /* 3) IMAGE SLIDER */
 

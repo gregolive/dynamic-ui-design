@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/js/all';
 import dropdown from './dropdown';
 import dropdownHover from './dropdown-hover';
 import navbarExpand from './navbar-expand';
+import navbarSide from './navbar-side';
 
 const demoDropdowns = (() => {
   const links1 = [
@@ -32,10 +33,12 @@ const demoMobileNavs = (() => {
     { text: 'About', href: '', icon: 'fa-solid fa-circle-info' },
   ];
   const expandTitle = { text: 'Expand Down', href: '#navbar-expand' };
+  const sideTitle = { text: 'Side Drawer', href: '#navbar-side' };
 
   const init = () => {
-    const phones = document.querySelectorAll('.mobile-main');
-    phones[0].parentNode.insertBefore(navbarExpand(expandTitle, menuLinks), phones[0]);
+    const phones = document.querySelectorAll('.mobile-screen');
+    phones[0].appendChild(navbarExpand(expandTitle, menuLinks));
+    phones[1].appendChild(navbarSide(sideTitle, menuLinks));
   };
 
   return { init };

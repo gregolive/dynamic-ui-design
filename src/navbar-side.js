@@ -7,12 +7,11 @@ const navbarTitle = (title) => {
   return navTitle;
 };
 
-const expandMenu = (e) => {
+const openMenu = (e) => {
   const menuClass = e.currentTarget.parentNode.nextSibling.classList;
-  if (menuClass.contains('show')) {
-    menuClass.remove('show');
-  } else {
+  if (!menuClass.contains('show')) {
     menuClass.add('show');
+    menuClass.remove('close');
   }
 };
 
@@ -25,9 +24,35 @@ const navbarBtn = () => {
   button.className = 'navbar-btn';
   button.setAttribute('type', 'button');
   button.appendChild(icon);
-  button.addEventListener('click', expandMenu);
+  button.addEventListener('click', openMenu);
 
   return button;
+};
+
+const closeMenu = (e) => {
+  const menuClass = e.currentTarget.parentNode.parentNode.classList;
+  if (menuClass.contains('show')) {
+    menuClass.remove('show');
+    menuClass.add('close');
+  }
+};
+
+const closeBtn = () => {
+  const container = document.createElement('div');
+  const button = document.createElement('button');
+  const icon = document.createElement('i');
+
+  icon.className = 'fa-solid fa-xmark';
+
+  button.className = 'menu-close';
+  button.setAttribute('type', 'button');
+  button.appendChild(icon);
+  button.addEventListener('click', closeMenu);
+
+  container.className = 'menu-close-wrapper';
+  container.appendChild(button);
+
+  return container;
 };
 
 const navbarLink = (link) => {
@@ -47,13 +72,14 @@ const navbarLink = (link) => {
 
 const navbarMenu = (links) => {
   const menu = document.createElement('div');
-  menu.className = 'navbar-menu menu-expand';
+  menu.className = 'navbar-menu menu-side close';
+  menu.appendChild(closeBtn());
   links.forEach((link) => menu.appendChild(navbarLink(link)));
 
   return menu;
 };
 
-const navbarExpand = (title, menuLinks) => {
+const navbarSide = (title, menuLinks) => {
   const nav = document.createElement('nav');
   const navMain = document.createElement('div');
 
@@ -61,7 +87,7 @@ const navbarExpand = (title, menuLinks) => {
   navMain.appendChild(navbarTitle(title));
   navMain.appendChild(navbarBtn());
 
-  nav.id = 'navbar-expand';
+  nav.id = 'navbar-side';
   nav.className = 'navbar';
   nav.appendChild(navMain);
   nav.appendChild(navbarMenu(menuLinks));
@@ -69,4 +95,4 @@ const navbarExpand = (title, menuLinks) => {
   return nav;
 };
 
-export default navbarExpand;
+export default navbarSide;
