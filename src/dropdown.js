@@ -17,7 +17,7 @@ const dropdownBtn = (title) => {
 
   icon.className = 'fa-solid fa-caret-down';
 
-  btn.className = 'btn btn-primary';
+  btn.className = 'btn btn-dropdown';
   btn.setAttribute('type', 'button');
   btn.textContent = ` ${title} `;
   btn.appendChild(icon);

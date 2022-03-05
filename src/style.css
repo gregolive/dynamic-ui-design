@@ -135,6 +135,10 @@ h2 {
 /* 1) DROP-DOWN MENU */
 
 :root {
+  --dropdown-btn-color: white;
+  --dropdown-btn-bg-color: var(--primary-color);
+  --dropdown-menu-bg-color: white;
+  --dropdown-menu-border: 1px solid var(--border-color);
   --dropdown-font-size: 1.1rem;
   --dropdown-border-rad: 0.25rem;
   --dropdown-btn-pad: 0.75rem 1rem;
@@ -142,7 +146,9 @@ h2 {
   --dropdown-item-pad: 0.25rem 1rem;
 }
 
-.btn {
+.btn-dropdown {
+  color: var(--dropdown-btn-color);
+  background-color: var(--dropdown-btn-bg-color);
   cursor: pointer;
   font-size: var(--dropdown-font-size);
   border: none;
@@ -150,17 +156,12 @@ h2 {
   padding: var(--dropdown-btn-pad);
 }
 
-.btn-primary {
-  color: white;
-  background-color: var(--primary-color);
-}
-
 .dropdown-menu {
   list-style: none;
   opacity: 0;
-  background-color: white;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
+  background-color: var(--dropdown-menu-bg-color);
+  border: var(--dropdown-menu-border);
+  border-radius: var(--dropdown-border-rad);
   min-width: 10rem;
   height: 0;
   position: absolute;
@@ -193,12 +194,15 @@ ul {
 
 :root {
   --nav-color: white;
+  --nav-bg-color: var(--primary-color);
+  --nav-border: none;
   --nav-height: 5rem;
   --nav-font-size: 1.5rem;
   --nav-pad-x: 1.5rem;
   --nav-link-font-size: 1.35rem;
-  --nav-link-pad-y: 0.5rem;
+  --nav-link-pad-y: 1rem;
   --nav-link-gap: 0.5rem;
+  --navmenu-bg-color: var(--secondary-color);
   --navmenu-open: all 0.35s ease;
   --navmenu-close: all 0.2s ease;
 }
@@ -212,7 +216,8 @@ ul {
 
 .navbar-top {
   color: var(--nav-color);
-  background-color: var(--primary-color);
+  background-color: var(--nav-bg-color);
+  border-bottom: var(--nav-border-color);
   font-size: var(--nav-font-size);
   height: var(--nav-height);
   width: calc(100% - (var(--nav-pad-x) * 2));
@@ -241,7 +246,7 @@ ul {
 }
 
 .navbar-menu {
-  background-color: var(--secondary-color);
+  background-color: var(--navmenu-bg-color);
   font-size: var(--nav-link-font-size);
   display: flex;
   flex-direction: column;
@@ -258,6 +263,43 @@ ul {
 
 .navbar-link:hover {
   background-color: var(--nav-color);
+}
+
+@media screen and (min-width: 768px) {
+  #navbar { /* .navbar */
+    background-color: var(--nav-bg-color);
+    padding: 0 var(--nav-pad-x);
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #navbar-top {
+    width: auto;
+    padding: 0;
+  }
+
+  #navbar-btn { /* .navbar-btn */
+    display: none;
+  }
+
+  #navbar-menu { /* .navbar-menu */
+    background-color: transparent;
+    padding: 0;
+    max-height: var(--nav-height);
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+    z-index: 1;
+    opacity: 1;
+    transition: none;
+    width:auto;
+  }
+
+  #navbar-menu > *:hover { /* .navbar-menu */
+    color: var(--nav-color);
+    background-color: var(--nav-bg-color);
+    opacity: 0.8;
+  }
 }
 
 /* Expand Menu */
@@ -289,7 +331,7 @@ ul {
 }
 
 .menu-side {
-  position: absolute;
+  position: absolute; /* fixed */
   top: 0;
   bottom: 0;
   width: var(--drawer-width);
@@ -307,6 +349,8 @@ ul {
   box-shadow: 0 0 0 10000px rgba(0, 0, 0, 0.50);
   opacity: 1;
   transition: var(--navmenu-open);
+  height: auto;
+  z-index: 999;
 }
 
 .menu-close-wrapper {
@@ -328,11 +372,12 @@ ul {
 /* Navbar Tabs */
 
 :root {
+  --nav-tab-bg-color: var(--primary-color);
   --navtab-font-size: 1rem;
 }
 
 .navbar-tabs {
-  background-color: var(--primary-color);
+  background-color: var(--nav-tab-bg-color);
   height: var(--nav-height);
   flex-direction: row;
   justify-content: space-evenly;
@@ -399,6 +444,8 @@ ul {
   --nav-arrow-pad: 1rem;
   --dot-div-height: 3rem;
   --dot-size: 15px;
+  --dot-color: lightgray;
+  --dot-active-color: var(--primary-color);
 }
 
 .slideshow-container {
@@ -452,11 +499,11 @@ ul {
   height: var(--dot-size);
   width: var(--dot-size);
   border-radius: 50%;
-  background-color: lightgray;
+  background-color: var(--dot-color);
 }
 
 .dot.active, .dot:hover {
-  background-color: var(--primary-color);
+  background-color: var(--dot-active-color);
 }
 
 @keyframes fade {
@@ -469,7 +516,7 @@ ul {
   to {opacity: 1}
 }
 
-/* Mobile Queries */
+/* Site Mobile Queries */
 
 @media screen and (max-width: 480px) {
   h2 {

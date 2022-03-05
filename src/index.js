@@ -12,6 +12,26 @@ import DT3 from './img/DT3.jpg';
 import DT4 from './img/DT4.jpg';
 import DT5 from './img/DT5.jpg';
 
+// Build expand navbar for site
+
+(() => {
+  const main = document.querySelector('main');
+  const navTitle = { text: 'Javascript UI Demos', href: '#' };
+  const navLinks = [
+    { text: 'Drop-down', href: '#dropdown-demo', icon: '' },
+    { text: 'Mobile Menu', href: '#mobile-menu-demo', icon: '' },
+    { text: 'Image Carousel', href: '#img-carousel-demo', icon: '' },
+  ];
+
+  document.body.insertBefore(navbarExpand(navTitle, navLinks), main);
+  document.querySelector('.navbar').id = 'navbar';
+  document.querySelector('.navbar-top').id = 'navbar-top';
+  document.querySelector('.navbar-btn').id = 'navbar-btn';
+  document.querySelector('.navbar-menu').id = 'navbar-menu';
+})();
+
+// Build Demos
+
 const demoDropdowns = (() => {
   const links1 = [
     { text: 'Hello there 👋', href: '#' },
