@@ -1,3 +1,40 @@
+// Carousel functionality
+
+let slideIndex = 1;
+
+const showSlides = (n) => {
+  const slides = document.querySelectorAll('.img-slide');
+  const dots = document.querySelectorAll('.dot');
+
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+
+  for (let i = 0; i < slides.length; i += 1) {
+    slides[i].classList.remove('active');
+  }
+  for (let i = 0; i < dots.length; i += 1) {
+    dots[i].classList.remove('active');
+  }
+
+  slides[slideIndex - 1].classList.add('active');
+  dots[slideIndex - 1].classList.add('active');
+};
+
+const slideLeft = () => {
+  showSlides(slideIndex -= 1);
+};
+
+const slideRight = () => {
+  showSlides(slideIndex += 1);
+};
+
+const setSlide = (e) => {
+  const n = Array.from(e.target.parentNode.childNodes).indexOf(e.target);
+  showSlides(slideIndex = n + 1);
+};
+
+// Build carousel elements
+
 const imgSlide = (image, index) => {
   const imgContainer = document.createElement('div');
   const img = document.createElement('img');
@@ -19,6 +56,12 @@ const navArrow = (name) => {
   arrow.className = `nav-arrow nav-arrow-${name}`;
   arrow.appendChild(arrowIcon);
 
+  if (name === 'left') {
+    arrow.addEventListener('click', slideLeft);
+  } else {
+    arrow.addEventListener('click', slideRight);
+  }
+
   return arrow;
 };
 
@@ -29,6 +72,7 @@ const navDots = (imgCount) => {
   for (let i = 0; i < imgCount; i += 1) {
     const span = document.createElement('span');
     span.className = (i === 0) ? 'dot active' : 'dot';
+    span.addEventListener('click', setSlide);
     dotContainer.appendChild(span);
   }
 
