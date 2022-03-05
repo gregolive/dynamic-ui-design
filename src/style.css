@@ -206,7 +206,7 @@ ul {
 }
 
 .navbar-top {
-  color: white;
+  color: var(--nav-color);
   background-color: var(--primary-color);
   font-size: var(--nav-font-size);
   height: var(--nav-height);
@@ -318,6 +318,40 @@ ul {
   border: none;
   padding-right: var(--drawer-btn-pad);
   cursor: pointer;
+}
+
+/* Navbar Tabs */
+
+:root {
+  --navtab-font-size: 1rem;
+}
+
+.navbar-tabs {
+  background-color: var(--primary-color);
+  height: var(--nav-height);
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navtab-link {
+  color: var(--nav-color);
+  font-size: var(--navtab-font-size);
+  min-width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--nav-height) / 30);
+}
+
+.navtab-link:hover {
+  color: var(--nav-color);
+  opacity: 0.8;
+}
+
+.navtab-icon {
+  font-size: calc(var(--navtab-font-size) * 1.5);
 }
 
 /* 3) IMAGE SLIDER */

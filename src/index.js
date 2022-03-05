@@ -4,6 +4,7 @@ import dropdown from './dropdown';
 import dropdownHover from './dropdown-hover';
 import navbarExpand from './navbar-expand';
 import navbarSide from './navbar-side';
+import navbarTabs from './navbar-tabs';
 
 const demoDropdowns = (() => {
   const links1 = [
@@ -39,6 +40,7 @@ const demoMobileNavs = (() => {
     const phones = document.querySelectorAll('.mobile-screen');
     phones[0].appendChild(navbarExpand(expandTitle, menuLinks));
     phones[1].appendChild(navbarSide(sideTitle, menuLinks));
+    phones[2].appendChild(navbarTabs(menuLinks));
   };
 
   return { init };
