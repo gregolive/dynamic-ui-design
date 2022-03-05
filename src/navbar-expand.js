@@ -7,6 +7,15 @@ const navbarTitle = (title) => {
   return navTitle;
 };
 
+const expandMenu = (e) => {
+  const menuClass = e.currentTarget.parentNode.nextSibling.classList;
+  if (menuClass.contains('show')) {
+    menuClass.remove('show');
+  } else {
+    menuClass.add('show');
+  }
+};
+
 const navbarBtn = () => {
   const button = document.createElement('button');
   const icon = document.createElement('i');
@@ -16,6 +25,7 @@ const navbarBtn = () => {
   button.className = 'navbar-btn';
   button.setAttribute('type', 'button');
   button.appendChild(icon);
+  button.addEventListener('click', expandMenu);
 
   return button;
 };
@@ -45,9 +55,15 @@ const navbarMenu = (links) => {
 
 const navbarExpand = (title, menuLinks) => {
   const nav = document.createElement('nav');
+  const navMain = document.createElement('div');
+
+  navMain.className = 'navbar-top';
+  navMain.appendChild(navbarTitle(title));
+  navMain.appendChild(navbarBtn());
+
+  nav.id = 'navbar-expand';
   nav.className = 'navbar navbar-expand';
-  nav.appendChild(navbarTitle(title));
-  nav.appendChild(navbarBtn());
+  nav.appendChild(navMain);
   nav.appendChild(navbarMenu(menuLinks));
 
   return nav;

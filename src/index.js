@@ -31,7 +31,7 @@ const demoMobileNavs = (() => {
     { text: 'Contact', href: '', icon: 'fa-solid fa-address-card' },
     { text: 'About', href: '', icon: 'fa-solid fa-circle-info' },
   ];
-  const expandTitle = { text: 'Navbar Expand', href: '#' };
+  const expandTitle = { text: 'Expand Down', href: '#navbar-expand' };
 
   const init = () => {
     const phones = document.querySelectorAll('.mobile-main');

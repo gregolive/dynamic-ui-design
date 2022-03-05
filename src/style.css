@@ -188,16 +188,19 @@ ul {
 /* 2) MOBILE MENU */
 
 .navbar {
-  background-color: var(--primary-color);
-  height: 5rem;
-  display: grid;
-  grid-template: 100% / 5fr 1fr;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.navbar > * {
+.navbar-top {
+  background-color: var(--primary-color);
+  height: 5rem;
+  width: calc(100% - 3rem);
   padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-title {
@@ -222,15 +225,22 @@ ul {
 .navbar-menu {
   background-color: var(--secondary-color);
   font-size: 1.35rem;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-menu.show {
+  transition: opacity .5s ease-out;
+  opacity: 1;
+  height: auto;
   padding: 0.5rem 0;
-  grid-column: 1 / -1;
-  display: grid;
-  z-index: 100;
 }
 
 .navbar-link {
   color: white;
-  width: 100%;
   padding: 0.5rem 0;
   display: flex;
   justify-content: center;
