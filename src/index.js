@@ -66,7 +66,7 @@ const demoCarousel = (() => {
   const images = [DT1, DT2, DT3, DT4, DT5];
 
   const init = () => {
-    const section = document.getElementById('img-slider-demo');
+    const section = document.getElementById('img-carousel-demo');
     section.appendChild(imgCarousel(images));
   };
 
