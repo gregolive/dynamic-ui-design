@@ -36,8 +36,6 @@ const menuTab = (link, index) => {
 
 const navbarTabs = (menuLinks) => {
   const nav = document.createElement('nav');
-
-  nav.id = 'navbar-tabs';
   nav.className = 'navbar navbar-tabs';
   menuLinks.forEach((link, index) => nav.appendChild(menuTab(link, index)));
 

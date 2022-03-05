@@ -295,7 +295,6 @@ ul {
     gap: 1.5rem;
     z-index: 1;
     opacity: 1;
-    transition: none;
     width:auto;
   }
 
@@ -303,6 +302,17 @@ ul {
     color: var(--nav-color);
     background-color: var(--nav-bg-color);
     opacity: 0.8;
+  }
+
+  #navbar-menu.close, #navbar-menu.show {
+    transition: none;
+  }
+}
+
+/* fix resizing bug */
+@media screen and (min-width: 750px) {
+  #navbar-menu.close, #navbar-menu.show {
+    transition: none;
   }
 }
 

@@ -67,7 +67,6 @@ const navbarExpand = (title, menuLinks) => {
   navMain.appendChild(navbarTitle(title));
   navMain.appendChild(navbarBtn());
 
-  nav.id = 'navbar-expand';
   nav.className = 'navbar';
   nav.appendChild(navMain);
   nav.appendChild(navbarMenu(menuLinks));

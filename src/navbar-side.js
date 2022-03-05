@@ -91,7 +91,6 @@ const navbarSide = (title, menuLinks) => {
   navMain.appendChild(navbarTitle(title));
   navMain.appendChild(navbarBtn());
 
-  nav.id = 'navbar-side';
   nav.className = 'navbar';
   nav.appendChild(navMain);
   nav.appendChild(navbarMenu(menuLinks));

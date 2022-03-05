@@ -28,6 +28,7 @@ import DT5 from './img/DT5.jpg';
   document.querySelector('.navbar-top').id = 'navbar-top';
   document.querySelector('.navbar-btn').id = 'navbar-btn';
   document.querySelector('.navbar-menu').id = 'navbar-menu';
+  //document.querySelector('.menu-expand').id = 'menu-expand';
 })();
 
 // Build Demos
