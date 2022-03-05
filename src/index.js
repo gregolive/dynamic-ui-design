@@ -5,6 +5,12 @@ import dropdownHover from './dropdown-hover';
 import navbarExpand from './navbar-expand';
 import navbarSide from './navbar-side';
 import navbarTabs from './navbar-tabs';
+import imgCarousel from './img-carousel';
+import DT1 from './img/DT1.jpg';
+import DT2 from './img/DT2.jpg';
+import DT3 from './img/DT3.jpg';
+import DT4 from './img/DT4.jpg';
+import DT5 from './img/DT5.jpg';
 
 const demoDropdowns = (() => {
   const links1 = [
@@ -56,5 +62,17 @@ const demoMobileNavs = (() => {
   return { init };
 })();
 
+const demoCarousel = (() => {
+  const images = [DT1, DT2, DT3, DT4, DT5];
+
+  const init = () => {
+    const section = document.getElementById('img-slider-demo');
+    section.appendChild(imgCarousel(images));
+  };
+
+  return { init };
+})();
+
 demoDropdowns.init();
 demoMobileNavs.init();
+demoCarousel.init();
