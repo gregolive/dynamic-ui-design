@@ -1,7 +1,21 @@
-const menuTab = (link) => {
+const activateTab = (e) => {
+  const clickedTab = e.currentTarget;
+  const activeTab = document.querySelector('.active-tab');
+  if (clickedTab !== activeTab) {
+    clickedTab.classList.add('active-tab');
+    activeTab.classList.remove('active-tab');
+  }
+};
+
+const menuTab = (link, index) => {
   const tab = document.createElement('a');
   tab.className = 'navtab-link';
   tab.href = link.href;
+  tab.addEventListener('click', activateTab);
+
+  if (index === 0) {
+    tab.classList.add('active-tab');
+  }
 
   if (typeof link.icon !== 'undefined') {
     const icon = document.createElement('icon');
@@ -21,7 +35,7 @@ const navbarTabs = (menuLinks) => {
 
   nav.id = 'navbar-tabs';
   nav.className = 'navbar navbar-tabs';
-  menuLinks.forEach((link) => nav.appendChild(menuTab(link)));
+  menuLinks.forEach((link, index) => nav.appendChild(menuTab(link, index)));
 
   return nav;
 };

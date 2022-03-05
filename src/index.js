@@ -28,19 +28,29 @@ const demoDropdowns = (() => {
 })();
 
 const demoMobileNavs = (() => {
-  const menuLinks = [
-    { text: 'News', href: '', icon: 'fa-solid fa-newspaper' },
-    { text: 'Contact', href: '', icon: 'fa-solid fa-address-card' },
-    { text: 'About', href: '', icon: 'fa-solid fa-circle-info' },
+  const menuLinksExpand = [
+    { text: 'News', href: '#navbar-expand', icon: 'fa-solid fa-newspaper' },
+    { text: 'Contact', href: '#navbar-expand', icon: 'fa-solid fa-address-card' },
+    { text: 'About', href: '#navbar-expand', icon: 'fa-solid fa-circle-info' },
+  ];
+  const menuLinksSide = [
+    { text: 'News', href: '#navbar-side', icon: 'fa-solid fa-newspaper' },
+    { text: 'Contact', href: '#navbar-side', icon: 'fa-solid fa-address-card' },
+    { text: 'About', href: '#navbar-side', icon: 'fa-solid fa-circle-info' },
+  ];
+  const menuLinksTab = [
+    { text: 'News', href: '#navbar-tabs', icon: 'fa-solid fa-newspaper' },
+    { text: 'Contact', href: '#navbar-tabs', icon: 'fa-solid fa-address-card' },
+    { text: 'About', href: '#navbar-tabs', icon: 'fa-solid fa-circle-info' },
   ];
   const expandTitle = { text: 'Expand Down', href: '#navbar-expand' };
   const sideTitle = { text: 'Side Drawer', href: '#navbar-side' };
 
   const init = () => {
     const phones = document.querySelectorAll('.mobile-screen');
-    phones[0].appendChild(navbarExpand(expandTitle, menuLinks));
-    phones[1].appendChild(navbarSide(sideTitle, menuLinks));
-    phones[2].appendChild(navbarTabs(menuLinks));
+    phones[0].appendChild(navbarExpand(expandTitle, menuLinksExpand));
+    phones[1].appendChild(navbarSide(sideTitle, menuLinksSide));
+    phones[2].appendChild(navbarTabs(menuLinksTab));
   };
 
   return { init };
