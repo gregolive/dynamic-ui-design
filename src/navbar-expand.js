@@ -1,11 +1,4 @@
-const navbarTitle = (title) => {
-  const navTitle = document.createElement('a');
-  navTitle.className = 'navbar-title';
-  navTitle.href = title.href;
-  navTitle.textContent = title.text;
-
-  return navTitle;
-};
+// Navbar functionality
 
 const expandMenu = (e) => {
   const menuClass = e.currentTarget.parentNode.nextSibling.classList;
@@ -16,6 +9,17 @@ const expandMenu = (e) => {
     menuClass.add('show');
     menuClass.remove('close');
   }
+};
+
+// Build nabvar elements
+
+const navbarTitle = (title) => {
+  const navTitle = document.createElement('a');
+  navTitle.className = 'navbar-title';
+  navTitle.href = title.href;
+  navTitle.textContent = title.text;
+
+  return navTitle;
 };
 
 const navbarBtn = () => {

@@ -1,3 +1,5 @@
+// Navbar functionality
+
 const activateTab = (e) => {
   const clickedTab = e.currentTarget;
   const activeTab = document.querySelector('.active-tab');
@@ -6,6 +8,8 @@ const activateTab = (e) => {
     activeTab.classList.remove('active-tab');
   }
 };
+
+// Build nabvar elements
 
 const menuTab = (link, index) => {
   const tab = document.createElement('a');

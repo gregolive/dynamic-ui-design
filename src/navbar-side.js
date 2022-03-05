@@ -1,11 +1,4 @@
-const navbarTitle = (title) => {
-  const navTitle = document.createElement('a');
-  navTitle.className = 'navbar-title';
-  navTitle.href = title.href;
-  navTitle.textContent = title.text;
-
-  return navTitle;
-};
+// Navbar functionality
 
 const openMenu = (e) => {
   const menuClass = e.currentTarget.parentNode.nextSibling.classList;
@@ -13,6 +6,25 @@ const openMenu = (e) => {
     menuClass.add('show');
     menuClass.remove('close');
   }
+};
+
+const closeMenu = (e) => {
+  const menuClass = e.currentTarget.parentNode.parentNode.classList;
+  if (menuClass.contains('show')) {
+    menuClass.remove('show');
+    menuClass.add('close');
+  }
+};
+
+// Build nabvar elements
+
+const navbarTitle = (title) => {
+  const navTitle = document.createElement('a');
+  navTitle.className = 'navbar-title';
+  navTitle.href = title.href;
+  navTitle.textContent = title.text;
+
+  return navTitle;
 };
 
 const navbarBtn = () => {
@@ -27,14 +39,6 @@ const navbarBtn = () => {
   button.addEventListener('click', openMenu);
 
   return button;
-};
-
-const closeMenu = (e) => {
-  const menuClass = e.currentTarget.parentNode.parentNode.classList;
-  if (menuClass.contains('show')) {
-    menuClass.remove('show');
-    menuClass.add('close');
-  }
 };
 
 const closeBtn = () => {

@@ -1,3 +1,5 @@
+// Dropdown functionality
+
 const clickMenu = (e) => {
   const menuClass = e.currentTarget.nextSibling.classList;
   if (menuClass.contains('show')) {
@@ -13,6 +15,8 @@ const hoverMenu = (e) => {
     menuClass.add('show');
   }
 };
+
+// Build dropdown elements
 
 const dropdownBtn = (title) => {
   const btn = document.createElement('button');
