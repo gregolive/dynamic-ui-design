@@ -28,9 +28,15 @@ const slideRight = () => {
   showSlides(slideIndex += 1);
 };
 
-const setSlide = (e) => {
-  const n = Array.from(e.target.parentNode.childNodes).indexOf(e.target);
-  showSlides(slideIndex = n + 1);
+const setSlide = (i) => {
+  showSlides(slideIndex = i + 1);
+};
+
+let autoscroll = window.setInterval(slideRight, 5000);
+
+const resetAutoScroll = () => {
+  window.clearInterval(autoscroll);
+  autoscroll = window.setInterval(slideRight, 5000);
 };
 
 // Build carousel elements
@@ -57,11 +63,16 @@ const navArrow = (name) => {
   arrow.appendChild(arrowIcon);
 
   if (name === 'left') {
-    arrow.addEventListener('click', slideLeft);
+    arrow.addEventListener('click', () => {
+      slideLeft();
+      resetAutoScroll();
+    });
   } else {
-    arrow.addEventListener('click', slideRight);
+    arrow.addEventListener('click', () => {
+      slideRight();
+      resetAutoScroll();
+    });
   }
-
   return arrow;
 };
 
@@ -72,7 +83,10 @@ const navDots = (imgCount) => {
   for (let i = 0; i < imgCount; i += 1) {
     const span = document.createElement('span');
     span.className = (i === 0) ? 'dot active' : 'dot';
-    span.addEventListener('click', setSlide);
+    span.addEventListener('click', () => {
+      setSlide(i);
+      resetAutoScroll();
+    });
     dotContainer.appendChild(span);
   }
 
