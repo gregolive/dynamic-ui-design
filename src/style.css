@@ -246,15 +246,20 @@ ul {
 
 .menu-expand {
   width: 100%;
-  height: 0;
+  padding: 0.5rem 0;
+}
+
+.menu-expand.close {
+  z-index: -1;
   opacity: 0;
+  max-height: 0;
+  transition: all .2s ease-in;
 }
 
 .menu-expand.show {
-  transition: opacity .5s ease-out;
   opacity: 1;
-  height: auto;
-  padding: 0.5rem 0;
+  max-height: 100%;
+  transition: all .5s ease-in;
 }
 
 /* Side Menu */
@@ -269,7 +274,7 @@ ul {
   top: 0;
   bottom: 0;
   left: -75%;
-  width: 90%;
+  width: 75%;
   height: 100%;
   opacity: 0;
 }
@@ -283,10 +288,11 @@ ul {
   height: auto;
   width: 75%;
   transition: left 0.35s ease;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow:0 0 0 10000px rgba(0,0,0,.50);
   opacity: 1;
   height: auto;
-  padding: 1rem;
+  padding: 1rem 0;
+  
 }
 
 .menu-close-wrapper {
@@ -301,6 +307,7 @@ ul {
   background: none;
   font-size: 2rem;
   border: none;
+  padding-right: 1rem;
   cursor: pointer;
 }
 

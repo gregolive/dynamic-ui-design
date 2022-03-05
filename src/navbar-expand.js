@@ -11,8 +11,10 @@ const expandMenu = (e) => {
   const menuClass = e.currentTarget.parentNode.nextSibling.classList;
   if (menuClass.contains('show')) {
     menuClass.remove('show');
+    menuClass.add('close');
   } else {
     menuClass.add('show');
+    menuClass.remove('close');
   }
 };
 
@@ -47,7 +49,7 @@ const navbarLink = (link) => {
 
 const navbarMenu = (links) => {
   const menu = document.createElement('div');
-  menu.className = 'navbar-menu menu-expand';
+  menu.className = 'navbar-menu menu-expand close';
   links.forEach((link) => menu.appendChild(navbarLink(link)));
 
   return menu;
