@@ -1,7 +1,16 @@
 // Dropdown functionality
 
-const clickMenu = (e) => {
+const clickBtn = (e) => {
   const menuClass = e.currentTarget.nextSibling.classList;
+  if (menuClass.contains('show')) {
+    menuClass.remove('show');
+  } else {
+    menuClass.add('show');
+  }
+};
+
+const clickMenu = (e) => {
+  const menuClass = e.currentTarget.parentNode.classList;
   if (menuClass.contains('show')) {
     menuClass.remove('show');
   } else {
@@ -21,7 +30,7 @@ const dropdownBtn = (title) => {
   btn.setAttribute('type', 'button');
   btn.textContent = ` ${title} `;
   btn.appendChild(icon);
-  btn.addEventListener('click', clickMenu);
+  btn.addEventListener('click', clickBtn);
 
   return btn;
 };
@@ -33,7 +42,9 @@ const dropdownLink = (link) => {
   listLink.className = 'dropdown-item';
   listLink.href = link.href;
   listLink.textContent = link.text;
+
   listItem.appendChild(listLink);
+  listItem.addEventListener('click', clickMenu);
 
   return listItem;
 };
